@@ -1,13 +1,36 @@
-"""
-Create a function named print_message that requires a keyword-only argument (message) 
-and an optional keyword-only argument (level) with a default value of "INFO". 
-The function should print out the message prefixed with the level. 
-The function shouldn't accept any positional arguments.
-"""
+import unittest
+from ex_test import Car
 
-def print_message(*, message, level='INFO'):
-    return f'{level} {message}'
+class CarTest(unittest.TestCase):
+    def test_car_exists(self):
+        car = Car()
+        self.assertTrue(car is not None)
 
-print(print_message(message='hello'))
-print(print_message(level=1, message='hello'))
-print(print_message(message='hello', level=1))
+    def test_wheels(self):
+        car = Car()
+        self.assertEqual(4, car.wheels)
+
+    def test_name_is_none(self):
+        car = Car()
+        self.assertIsNone(car.name)
+
+    def test_instance_of_car(self):
+        car = Car()
+        self.assertIsInstance(car, Car)
+        # This test is more useful when dealing with inheritance.
+        # This example is a bit contrived.
+
+    def test_includes_car(self):
+        car = Car()
+        arr = [1, 2, 3]
+        arr.append(car)
+        self.assertIn(car, arr)
+
+    @unittest.skip
+    def test_bad_wheels(self):
+        car = Car()
+        self.assertEqual(3, car.wheels)
+
+if __name__ == '__main__':
+    unittest.main()
+Output

@@ -330,7 +330,7 @@ def step_8():
     # [ ] Clean room
     # [ ] Go to gym
 
-step_8()
+# step_8()
 
 def step_7():
     print('--------------------------------- Step 7')
