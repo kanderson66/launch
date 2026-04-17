@@ -1,36 +1,26 @@
-import unittest
-from ex_test import Car
+from time import perf_counter
+from functools import lru_cache
 
-class CarTest(unittest.TestCase):
-    def test_car_exists(self):
-        car = Car()
-        self.assertTrue(car is not None)
+def time_runs(func):
+    def wrapper(*args, **kwargs):
+        start = perf_counter()
+        return_value = func(*args, **kwargs)
+        print(f"The function ran in {perf_counter()-start} seconds")
+        return return_value
+    return wrapper
 
-    def test_wheels(self):
-        car = Car()
-        self.assertEqual(4, car.wheels)
+@time_runs
+@lru_cache
+def is_prime(n):
+    for i in range(2, n):
+        if (n % i) == 0:
+            return False
+    return True
 
-    def test_name_is_none(self):
-        car = Car()
-        self.assertIsNone(car.name)
+print(is_prime(97))    # First call - runs actual computation
+# The function ran in 0.0001234 seconds
+# True
 
-    def test_instance_of_car(self):
-        car = Car()
-        self.assertIsInstance(car, Car)
-        # This test is more useful when dealing with inheritance.
-        # This example is a bit contrived.
-
-    def test_includes_car(self):
-        car = Car()
-        arr = [1, 2, 3]
-        arr.append(car)
-        self.assertIn(car, arr)
-
-    @unittest.skip
-    def test_bad_wheels(self):
-        car = Car()
-        self.assertEqual(3, car.wheels)
-
-if __name__ == '__main__':
-    unittest.main()
-Output
+print(is_prime(97))    # Second call - uses cache
+# The function ran in 0.0000012 seconds  # Much faster!
+# True
