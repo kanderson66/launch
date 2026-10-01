@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    <title>{{ chapter_title }}</title>
+{% endblock %}
+
+
+{% block content %}
+    <h2 class="content-subhead">Chapter {{ chapter_num }}: {{ chapter_title }}</h2>
+    {% autoescape false %}
+        {{ chapter | in_paragraphs }}
+    {% endautoescape %}
+
+{% endblock %}

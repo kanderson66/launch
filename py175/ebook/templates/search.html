@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    <title>Search</title>
+{% endblock %}
+
+{% block content %}
+    <h2 class="content-subhead">Search</h2>
+
+    <form action="{{ url_for('search') }}" method="get">
+        <input name="query" value="{{ query }}" />
+        <button type="submit">Search</button>
+    </form>
+
+    {% if query and not chapter_nums %}
+        <p>Sorry, no matches were found.</p>
+
+    {% elif chapter_nums %}
+        <h2 class="content-subhead">Results for '{{ query }}':</h2>
+        <ul>
+        
+            {% for chapter_num in chapter_nums %}
+            <li>
+                <a href="{{ url_for('chapters', page_num=chapter_num) }}">{{ g.toc[chapter_num - 1] }}</a>
+                <ul>
+                    {% for paragraph in paragraphs[loop.index0] %}
+                        <li>
+                            <a href="{{ url_for('chapters', page_num=chapter_num) }}#{{ paragraph.id }}">
+                                {{ paragraph.paragraph | bold_findings(query) | safe }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+        
+    </ul>
+    {% endif %}
+
+{% endblock %}

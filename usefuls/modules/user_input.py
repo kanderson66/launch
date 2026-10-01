@@ -1,4 +1,4 @@
-def get_user_input(question, options):
+def validate_user_input(question, options):
     user_input = input(f'\n{question} [{'/'.join(options)}] ')
 
     while user_input not in options:
@@ -6,8 +6,9 @@ def get_user_input(question, options):
         user_input = input(f'\n{question} [{'/'.join(options)}] ')
     return user_input
 
-if get_user_input('Hit or stay?', ['h', 's']) == 's':
-    print('Stay')
-else:
-    print('Hit')
+
+# if validate_user_input('Hit or stay?', ['h', 's']) == 's':
+#     print('Stay')
+# else:
+#     print('Hit')
 

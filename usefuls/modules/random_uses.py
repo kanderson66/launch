@@ -1,6 +1,7 @@
 # https://docs.python.org/3/library/random.html#bookkeeping-functions
 
 import random
+import string
 
 
 # RANDOM CHOICE
