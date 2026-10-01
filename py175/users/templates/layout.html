@@ -1,0 +1,11 @@
+{% block content %}
+{% endblock %}
+
+<p>{% for username in g.usernames %}
+    {% if username != current_username %}
+        <a href="{{ url_for('user', username=username) }}">
+            {{ username }}</a> &nbsp &nbsp &nbsp
+    {% endif %}
+{% endfor %}</p>
+
+<p>There are {{ g.usernames | length }} users with {{ g.total_interests }} interests</p>

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>{{ current_username.capitalize() }}</h1>
+
+    {% for category in g.users_info[current_username] %}
+        <p><strong>{{ category.capitalize() }}</strong>: 
+        {% if category == 'interests' %}
+            {{ ', '.join(g.users_info[current_username][category]) }}
+        {% else %}
+            {{ g.users_info[current_username][category] }}
+        {% endif %}
+        </p>
+    {% endfor %}
+{% endblock %}
