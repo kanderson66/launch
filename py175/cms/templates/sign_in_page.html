@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<form action="{{ url_for('sign_in') }}" method="post">
+    <div>
+      <label for="username">Username:
+        <input type="text" id="username" name="username" value="{{ username }}">
+      </label>
+    </div>
+    <div>
+      <label for="password">Password:
+        <input type="password" id="password" name="password" value="">
+      </label>
+    </div>
+      <button type="submit">Sign In</button>
+</form>
+{% endblock %}

@@ -5,7 +5,7 @@
 2008 - Python 3.0 is released.
 2010 - Python 2.7 is released.
 2011 - Python 3.2 is released.
-2012 - Pizza Py Guy
+2012 - Pizza Py Guys
 2014 - Python 3.4 is released.
 2015 - Python 3.5 is released.
 2016 - Python 3.6 is released.
