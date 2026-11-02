@@ -1,10 +1,12 @@
+# https://launchschool.com/lessons/daa88218/assignments
+# filepaths/directories, opening files, yaml, bcrypt password encryption, wraps, testing, markdown, 
 from flask import Flask, render_template, send_from_directory, redirect, flash, url_for, request, session
 import os
 from markdown import markdown
 from cms.util import valid_filename
 from functools import wraps
 import yaml # poetry add pyyaml
-from bcrypt import hashpw, gensalt # poetry add bcrypt
+from bcrypt import hashpw, gensalt, checkpw # poetry add bcrypt
 import re
 
 app = Flask(__name__)
@@ -49,6 +51,8 @@ def load_users():
 
     return users
 
+# this can be improved by using more yaml built-in functionality
+# see LSBot review https://launchschool.com/posts/95aed98d#:~:text=The%20update_users_contents-,Function,-This%20is%20the
 def update_users_contents(contents):
     hashed_contents = ''
     lines = contents.split('\n')
@@ -174,7 +178,8 @@ def sign_in():
 
     # @todo
     for user, hashed in users.items():
-        if username == user and hashpw(password.encode(), hashed.encode()) == hashed.encode():
+        # if username == user and hashpw(password.encode(), hashed.encode()) == hashed.encode():
+        if username == user and checkpw(password.encode(), hashed.encode()):
         # if username == user and password == passw:
             session['user'] = username
             flash("Welcome!")

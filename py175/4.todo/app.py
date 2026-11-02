@@ -1,7 +1,9 @@
+# https://launchschool.com/lessons/7131ac4b/assignments
 # cd py175/todo
 # poetry install
 # poetry run python app.py
 # help, see LSBot convo https://launchschool.com/lessons/daa88218/assignments/509639cf
+# context processor, wraps, javascript, uuid, 
 from flask import Flask, render_template, redirect, url_for, session, request, flash
 from werkzeug.exceptions import NotFound
 from uuid import uuid4

@@ -2,22 +2,22 @@ cats = {
     'Pete': {
         'Cheddar': {
             'color': 'orange',
-            'enjoys': {
+            'enjoys': [
                 'sleeping',
                 'snuggling',
                 'meowing',
                 'eating',
                 'birdwatching',
-            },
+            ],
         },
         'Cocoa': {
             'color': 'black',
-            'enjoys': {
+            'enjoys': [
                 'eating',
                 'sleeping',
                 'playing',
                 'chewing',
-            },
+            ],
         },
     },
 }

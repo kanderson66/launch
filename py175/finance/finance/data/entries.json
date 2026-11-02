@@ -1,0 +1,39 @@
+{
+    "_comment": "Year, month, day, ID: [type, account, category, amount, desc]",
+    "2026": {
+        "10": {
+            "29": {
+                "1": {
+                    "type": "Expense",
+                    "account": "Kurtis",
+                    "category": "House",
+                    "amount": 20,
+                    "desc": "item1"
+                },
+                "2": {
+                    "type": "Income",
+                    "account": "Kurtis",
+                    "category": "Nexus",
+                    "amount": 30,
+                    "desc": "item2"
+                }
+            },
+            "28": {
+                "1": {
+                    "type": "Expense",
+                    "account": "Kurtis",
+                    "category": "House",
+                    "amount": 20,
+                    "desc": "item1"
+                },
+                "2": {
+                    "type": "Income",
+                    "account": "Kurtis",
+                    "category": "Nexus",
+                    "amount": 30,
+                    "desc": "item2"
+                }
+            }
+        }
+    }
+}

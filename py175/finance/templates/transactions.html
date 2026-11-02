@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<table>
+    <tr>
+        <td>Income</td>
+        <td>Expense</td>
+    </tr>
+    <tr>
+        <td>$$$</td>
+        <td>$$$</td>
+    </tr>
+{% for transaction in transactions.values() %}
+    <tr>
+        <td>{{ transaction.account }}</td>
+        <td>{{ transaction.category }}</td>
+        <td>{{ transaction.desc }}</td>
+        <td>${{ transaction.amount }}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,4 +1,5 @@
 # https://launchschool.com/lessons/9904914e/assignments/74440a4e
+# yaml, global, 
 from flask import Flask, render_template, g, redirect
 import yaml
 

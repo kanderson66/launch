@@ -1,3 +1,5 @@
+# https://launchschool.com/lessons/9904914e/assignments
+# template filter, search query, 404 error handler, request
 from flask import Flask, render_template, g, redirect, request
 
 app = Flask(__name__)
