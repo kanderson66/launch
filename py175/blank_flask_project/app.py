@@ -1,3 +1,4 @@
+# run 'poetry install' to install and set up environment
 from flask import Flask
 
 app = Flask(__name__)
